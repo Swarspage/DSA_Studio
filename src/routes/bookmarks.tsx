@@ -35,7 +35,8 @@ function BookmarksPage() {
     if (!pr) continue;
     seen.add(pl.problemId);
     totalBookmarkedCount++;
-    if (q && !pr.title.toLowerCase().includes(q)) continue;
+    if (q && !pr.title.toLowerCase().includes(q) && !pl.topicName.toLowerCase().includes(q))
+      continue;
     rows.push({ problem: pr, pattern: `${pl.topicName} • ${pl.levelTitle}` });
   }
 
