@@ -41,7 +41,7 @@ export const Route = createFileRoute("/topics/$slug")({
 function TopicPage() {
   const { topic } = Route.useLoaderData() as { topic: import("@/data/problems").Topic };
   const progress = useProgress();
-  const { query } = useGlobalSearch();
+  const { query, setQuery } = useGlobalSearch();
 
   const [difficulty, setDifficulty] = useState<string>("all");
   const [status, setStatus] = useState<string>("all");
@@ -94,6 +94,7 @@ function TopicPage() {
     setDifficulty("all");
     setStatus("all");
     setPlatform("all");
+    setQuery("");
   };
 
   return (
